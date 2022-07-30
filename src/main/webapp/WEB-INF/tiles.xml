@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+
+    <definition name="basePage"
+                template="/WEB-INF/view/basePage.jsp">
+        <put-attribute name="title" value="" />
+        <put-attribute name="header" value="/WEB-INF/basefragments/_header.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/basefragments/_menu.jsp"/>
+    </definition>
+    <definition name="adminPage"
+                template="/WEB-INF/view/basePage.jsp">
+        <put-attribute name="title" value="" />
+        <put-attribute name="header" value="/WEB-INF/basefragments/_header.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/basefragments/_menuAdmin.jsp"/>
+    </definition>
+
+
+    <definition name="homePage"
+                template="/WEB-INF/view/homePage.jsp">
+        <put-attribute name="title" value="" />
+        <put-attribute name="header" value="/WEB-INF/basefragments/_header.jsp" />
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/home/_homePage.jsp" />
+    </definition>
+
+
+    <definition name="registration"
+                template="/WEB-INF/view/authorizationPage.jsp">
+        <put-attribute name="title" value="" />
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/authorization/_registration.jsp" />
+    </definition>
+
+    <definition name="login"
+                template="/WEB-INF/view/authorizationPage.jsp">
+        <put-attribute name="title" value="" />
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/authorization/_login.jsp" />
+    </definition>
+
+    <definition name="medicine"
+                extends="basePage">
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/group/_medicine.jsp" />
+    </definition>
+
+    <definition name="medicalProducts"
+                extends="basePage">
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/group/_medicalProducts.jsp" />
+    </definition>
+
+    <definition name="dietarySupplement"
+                extends="basePage">
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/group/_dietarySupplement.jsp" />
+    </definition>
+    <definition name="cosmetics"
+                extends="basePage">
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/group/_cosmetics.jsp" />
+    </definition>
+
+    <definition name="administration"
+                extends="basePage">
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/_administration.jsp" />
+    </definition>
+
+    <definition name="newGroups"
+                extends="basePage">
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/_newGroupe.jsp" />
+    </definition>
+
+    <definition name = "basket"
+                extends="basePage">
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/basket/_basket.jsp" />
+    </definition>
+    <definition name = "handlerAdminOperation"
+                extends="adminPage">
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithUsers/_handlerUsersCRUD.jsp" />
+    </definition>
+    <definition name = "allUsers"
+                extends="adminPage">
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithUsers/showUsers/_showAllUsers.jsp" />
+    </definition>
+    <definition name = "loadUserById"
+                extends="adminPage">
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithUsers/showUsers/_loadUserById.jsp" />
+    </definition>
+    <definition name = "showUserById"
+                extends="adminPage">
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithUsers/showUsers/_showUserById.jsp" />
+    </definition>
+    <definition name = "loadUserByLogin"
+                extends="adminPage">
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithUsers/showUsers/_loadUserByLogin.jsp" />
+    </definition>
+    <definition name = "showUserByLogin"
+                extends="adminPage">
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithUsers/showUsers/_showUserByLogin.jsp" />
+    </definition>
+    <definition name = "showUsersByName"
+                extends="adminPage">
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithUsers/showUsers/_showUsersByName.jsp" />
+    </definition>
+    <definition name = "loadUsersByName"
+                extends="adminPage">
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithUsers/showUsers/_loadUsersByName.jsp" />
+    </definition>
+
+
+
+    <definition name="list"
+                extends="basePage">
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithUsers/_handlerUsersCRUD.jsp" />
+    </definition>
+
+
+
+
+
+
+
+
+
+
+
+
+</tiles-definitions>
