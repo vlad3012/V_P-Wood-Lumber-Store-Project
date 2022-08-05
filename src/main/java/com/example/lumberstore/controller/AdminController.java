@@ -122,7 +122,7 @@ private UserService userService;
 
     @GetMapping("/createNewUser")
     public String createNewUser(Model model) {
-        model.addAttribute("usersForm", new User());
+        model.addAttribute("user", new User());
         return "createUser";
     }
 
@@ -146,12 +146,12 @@ private UserService userService;
 
     @GetMapping("/updateUserById")
     public String updateUserById(Model model) {
-        model.addAttribute("updateUserForm", userService.loadUserById(20L));
+        model.addAttribute("updateUser", userService.loadUserById(20L));
         return "updateUserById";
     }
 
     @PostMapping("/updateUserById")
-    public String update(@ModelAttribute("usersForm") @Valid User usersForm) {
+    public String update(@ModelAttribute("user") @Valid User usersForm) {
         userService.save(usersForm);
         return "updateUserById";
     }
