@@ -2,7 +2,6 @@ package com.example.lumberstore.service;
 
 import com.example.lumberstore.entity.Role;
 import com.example.lumberstore.repository.UserRepository;
-import com.example.lumberstore.repository.ProductRepository;
 import com.example.lumberstore.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -37,9 +36,10 @@ public class UserService implements UserDetailsService {
         return userRepository.findById(id);
     }
 
-    public void save(User user) {
+    public boolean save(User user) {
         userRepository.save(user);
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+        return true;
     }
     public boolean deleteUserById(Integer id) {
         userRepository.deleteById(id);

@@ -127,16 +127,20 @@ private UserService userService;
     }
 
     @PostMapping("/createNewUser")
-    public String newUser(@ModelAttribute("usersForm") @Valid User usersForm, Model model) {
-        if (!usersForm.getPassword().equals(usersForm.getPassword())) {
-            model.addAttribute("passwordError", "nonono");
-            return "createUser";
-        }
-        if (!userService.saveUser(usersForm)) {
-            model.addAttribute("usernameError", "use estn");
-            return "createUser";
-        }
-        return "createUser";
+    public String newUser(@ModelAttribute("users") @Valid User user, Model model) {
+//        if (!user.getPassword().equals(user.getPassword())) {
+//            model.addAttribute("passwordError", "");
+//            return "createUser";
+//        }
+//        if (!userService.save(user);) {
+//            model.addAttribute("Error", "use something else");
+//            return "createUser";
+//        }
+//        return "createUser";
+
+    userService.save(user);
+    model.addAttribute("Everything is ok");
+        return "A new user has been created";
     }
 
 
@@ -148,7 +152,7 @@ private UserService userService;
 
     @PostMapping("/updateUserById")
     public String update(@ModelAttribute("usersForm") @Valid User usersForm) {
-        userService.saveUser(usersForm);
+        userService.save(usersForm);
         return "updateUserById";
     }
 }
