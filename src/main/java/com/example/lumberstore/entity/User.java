@@ -32,10 +32,9 @@ public class User implements UserDetails {
             @JoinColumn(name = "GROUPS_NAME", referencedColumnName = "NAME")})
     @ManyToMany
     private List<Group> groupsList;
-    @ManyToMany(fetch = FetchType.EAGER)
-    @ToString.Exclude
-    @EqualsAndHashCode.Exclude
-    private Set<Role> roles;
+    @ManyToOne
+    @JoinColumn(name = "roleId")
+    private Role role;
 
     @OneToOne
     @ToString.Exclude
@@ -45,7 +44,7 @@ public class User implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return roles;
+        return (Collection<? extends GrantedAuthority>) getRole();
     }
 
     @Override

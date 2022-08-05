@@ -1,54 +1,27 @@
 package com.example.lumberstore.entity;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.Transient;
+import javax.persistence.*;
 import java.util.Set;
 @Entity
+@Getter
+@Setter
 public class Role implements GrantedAuthority {
     @Id
-    private Long id;
-    private String name;
-    @Transient
-    @ManyToMany(mappedBy = "role")
-    private Set<User> persons;
+    private int id;
+    private String Name;
+    @OneToMany(mappedBy = "role")
+    private Set<User> users;
+
     public Role() {
     }
 
-    public Role(Long id) {
+    public Role(int l, String name) {
         this.id = id;
-    }
-
-    public Role(Long id, String name) {
-        this.id = id;
-        this.name = name;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Set<User> getPersons() {
-        return persons;
-    }
-
-    public void setPersons(Set<User> persons) {
-        this.persons = persons;
+        Name = name;
     }
 
     @Override
