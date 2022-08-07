@@ -27,7 +27,7 @@ public class AdminProductController {
     }
 
     @RequestMapping("/showAllProduct")
-    public String showAllProduct(Model model) {
+    public String getAllProduct(Model model) {
         model.addAttribute("allProducts",  productService.getAllProduct());
         return "showAllProduct";
     }

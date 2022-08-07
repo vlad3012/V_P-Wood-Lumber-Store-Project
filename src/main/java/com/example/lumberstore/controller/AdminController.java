@@ -12,26 +12,20 @@ import javax.validation.Valid;
 
 @Controller
 public class AdminController {
-//    @Autowired
-//    private UserService userService;
-//
-//    @GetMapping("/admin")
-//    public String userList(Model model) {
-//        model.addAttribute("allUsers", userService.allUsers());
-//        return "admin";
-//    }
-//
-//    @PostMapping("/admin")
-//    public String deleteUser(@RequestParam(required = true, defaultValue = "") int userId,
-//                             @RequestParam(required = true, defaultValue = "") String action,
-//                             Model model) {
-//        if (action.equals("delete")) {
-//            userService.deleteUser(userId);
-//        }
-//        return "redirect:/admin";
-//    }
-@Autowired
-private UserService userService;
+    @Autowired
+    private UserService userService;
+
+    @GetMapping("/admin")
+    public String userList(Model model) {
+        model.addAttribute("allUsers", userService.allUsers());
+        return "admin";
+    }
+
+    @PostMapping("/admin")
+    public String deleteUser(@PathVariable("id") int userId, Model model){
+            userService.deleteUserById(userId);
+        return "redirect:/admin";
+    }
 
     @RequestMapping("/admins")
     public String admin() {
