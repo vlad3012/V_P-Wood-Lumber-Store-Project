@@ -22,8 +22,8 @@ public class AdminController {
     }
 
     @PostMapping("/admin")
-    public String deleteUser(@PathVariable("id") int userId, Model model){
-            userService.deleteUserById(userId);
+    public String deleteUser(@PathVariable("id") int userId, Model model) {
+        userService.deleteUserById(userId);
         return "redirect:/admin";
     }
 
@@ -90,12 +90,14 @@ public class AdminController {
         model.addAttribute("User", userService.loadUserById(id).get());
         return "deleteUserById";
     }
+
     @RequestMapping("/loadUserByLoginForDelete")
     public String loadUserByLoginForDelete(Model model, HttpServletRequest request) {
         String login = (request.getParameter("login"));
         model.addAttribute("User", userService.loadUserByLogin(login));
         return "deleteUserByLogin";
     }
+
     @RequestMapping("/deleteUser/{id}")
     public String deleteUser(@PathVariable Integer id) {
         userService.deleteUserById(id);
@@ -121,20 +123,9 @@ public class AdminController {
     }
 
     @PostMapping("/createNewUser")
-    public String newUser(@ModelAttribute("users") @Valid User user, Model model) {
-//        if (!user.getPassword().equals(user.getPassword())) {
-//            model.addAttribute("passwordError", "");
-//            return "createUser";
-//        }
-//        if (!userService.save(user);) {
-//            model.addAttribute("Error", "use something else");
-//            return "createUser";
-//        }
-//        return "createUser";
-
+    public String newUser(@ModelAttribute("users") @Valid User user) {
     userService.save(user);
-    model.addAttribute("Everything is ok");
-        return "A new user has been created";
+        return "createNewUser";
     }
 
 

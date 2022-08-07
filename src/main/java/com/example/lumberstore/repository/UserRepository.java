@@ -12,8 +12,7 @@ public interface UserRepository extends CrudRepository<User, Integer> {
     User findByLogin(String login);
     List<User> findByUsername(String userName);
     Optional<User> findById(Long id);
-    void deleteByLogin(String login);
-    @Override
+//    void deleteByLogin(String login);
     void deleteById(Integer id);
-    void deleteByUsername(String userName);
+//    void deleteByUsername(String userName);
 }
