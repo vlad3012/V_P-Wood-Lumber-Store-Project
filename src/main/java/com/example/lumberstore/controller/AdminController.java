@@ -67,12 +67,12 @@ public class AdminController {
         return "showUserByLogin";
     }
 
-    @RequestMapping("/showUsersByName")
+    @RequestMapping("/showUserByName")
     public String findByUserName() {
         return "findByUserName";
     }
 
-    @RequestMapping("/loadUsersByName")
+    @RequestMapping("/findByUserName")
     public String findByUserName(Model model, HttpServletRequest request) {
         String name = request.getParameter("userName");
         model.addAttribute("User", userService.findByUserName(name));
