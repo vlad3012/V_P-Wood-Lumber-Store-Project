@@ -33,8 +33,8 @@ public class UserService implements UserDetailsService {
         return userRepository.findByLogin(login);
     }
 
-    public List<User> findByUserName(String userName) {
-        return userRepository.findByUserName(userName);
+    public List<User> findByUserName(String name) {
+        return userRepository.findByUserName(name);
     }
 
     public Optional<User> loadUserById(Long id) {
