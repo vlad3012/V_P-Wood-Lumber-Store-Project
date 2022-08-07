@@ -68,15 +68,15 @@ public class AdminController {
     }
 
     @RequestMapping("/showUsersByName")
-    public String loadUsersByName() {
-        return "loadUsersByName";
+    public String findByUserName() {
+        return "findByUserName";
     }
 
     @RequestMapping("/loadUsersByName")
-    public String showUsersByName(Model model, HttpServletRequest request) {
-        String name = request.getParameter("nameUser");
-        model.addAttribute("User", userService.loadUserByUsername(name));
-        return "showUsersByName";
+    public String findByUserName(Model model, HttpServletRequest request) {
+        String name = request.getParameter("userName");
+        model.addAttribute("User", userService.findByUserName(name));
+        return "showUserByName";
     }
 
     @RequestMapping("/deleteUserById")
