@@ -41,18 +41,21 @@ public class UserService implements UserDetailsService {
         return userRepository.findById(id);
     }
 
+    public boolean saveUser(User user) {
+        User userFromDB = userRepository.findByLogin(user.getEmail());
+        if (userFromDB != null) {
+            return false;
+        }
+        user.setRole((new Role(1L,"Users")));
+        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+        userRepository.save(user);
+        return true;
+    }
+
     public void save(User user) {
         userRepository.save(user);
 
     }
-
-//    public void editRoleById(Integer id) {
-//        Optional<User> user = userRepository.findById(id);
-//        Set<Role> newRole = new HashSet<>();
-//        newRole.add(new Role(1, "ROLE_USER"));
-//        user.get().setRole(new Role());
-//        userRepository.save(user.get());
-//    }
 
     public List<User> allUsers() {
         return (List<User>) userRepository.findAll();
@@ -61,5 +64,4 @@ public class UserService implements UserDetailsService {
     public void deleteUserById(int id) {
         userRepository.deleteById(id);
     }
-
 }

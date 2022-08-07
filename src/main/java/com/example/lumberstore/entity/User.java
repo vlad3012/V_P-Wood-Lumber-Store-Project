@@ -20,6 +20,7 @@ public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int id;
+    private String login;
     private String firstName;
     private String lastName;
     private String email;
