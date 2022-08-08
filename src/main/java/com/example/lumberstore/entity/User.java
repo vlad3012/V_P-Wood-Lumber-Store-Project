@@ -4,73 +4,110 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.hibernate.annotations.Cascade;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.*;
 
-@Entity
-@Getter
-@Setter
-public class User implements UserDetails {
+
+@NamedQuery(name = "get_user_by_email", query = "from users where email=:email")
+
+@Entity(name = "users")
+public class User implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private int id;
-    private String login;
-    private String firstName;
-    private String lastName;
-    private String email;
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private LocalDate birthdate;
-    private String address;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String username;
     private String password;
-    @JoinTable(name = "USER_GROUPS", joinColumns = {
-            @JoinColumn(name = "USER_EMAIL", referencedColumnName = "EMAIL")}, inverseJoinColumns = {
-            @JoinColumn(name = "GROUPS_NAME", referencedColumnName = "NAME")})
-    @ManyToMany
-    private List<Group> groupsList;
+    private String email;
+    @Transient
+    private String confirmPassword;
+
     @ManyToOne
-    @JoinColumn(name = "roleId")
+    @JoinColumn(name = "role_id")
     private Role role;
 
     @OneToOne
-    @ToString.Exclude
-    @EqualsAndHashCode.Exclude
-    private Basket basket;
+    @JoinColumn(name = "customer_id")
+    @Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+    private Customer customer;
 
-
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return (Collection<? extends GrantedAuthority>) getRole();
+    public User() {
     }
 
-    @Override
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
     public String getUsername() {
-        return firstName;
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public String getConfirmPassword() {
+        return confirmPassword;
+    }
+
+    public void setConfirmPassword(String confirmPassword) {
+        this.confirmPassword = confirmPassword;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     @Override
-    public boolean isAccountNonExpired() {
-        return true;
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return id == user.id && username.equals(user.username) && password.equals(user.password);
     }
 
     @Override
-    public boolean isAccountNonLocked() {
-        return true;
-    }
-
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isEnabled() {
-        return true;
+    public int hashCode() {
+        return Objects.hash(id, username, password);
     }
 }
 

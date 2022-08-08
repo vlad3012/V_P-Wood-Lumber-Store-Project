@@ -1,54 +1,65 @@
 package com.example.lumberstore.config;
-
-import com.example.lumberstore.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
-@Configuration
+
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-//    @Autowired
-//    UserService userService;
-    @Bean
-    public BCryptPasswordEncoder bCryptPasswordEncoder() {
-        return new BCryptPasswordEncoder();
+
+    private final UserDetailsService userDetailsService;
+    private final LoginSuccessHandler loginSuccessHandler;
+
+    @Autowired
+    public WebSecurityConfig(UserDetailsService userDetailsService, LoginSuccessHandler loginSuccessHandler) {
+
+        this.userDetailsService = userDetailsService;
+        this.loginSuccessHandler = loginSuccessHandler;
     }
+
     @Override
-    protected void configure(HttpSecurity httpSecurity) throws Exception {
-        httpSecurity
-                .csrf()
-                .disable()
+    protected void configure(HttpSecurity http) throws Exception {
+
+        http
                 .authorizeRequests()
-                //Доступ только для не зарегистрированных пользователей
-                .antMatchers("/registration").not().fullyAuthenticated()
-                //Доступ только для пользователей с ролью Администратор
-                .antMatchers("/admin/**").hasRole("ADMIN")
-                .antMatchers("/news").hasRole("USER")
-                //Доступ разрешен всем пользователей
-                .antMatchers("/", "/resources/**").permitAll()
-                //Все остальные страницы требуют аутентификации
-                .anyRequest().authenticated()
+                .antMatchers("/login**", "/registrationPage**", "/register").not().authenticated()
+                .antMatchers("/order/").authenticated()
+                .antMatchers("/order/history").hasRole("USER")
+                .antMatchers("/order/fillByCatalog/**").permitAll()
+                .antMatchers("/component/getData", "/component/list").permitAll()
+                .antMatchers("/priceList/**", "/order/**", "/catalog/settings/**",
+                        "/customer/**", "/component/**").hasRole("ADMIN")
+                .antMatchers("/cart/**", "/profile/**").hasRole("USER")
+                .anyRequest().permitAll()
                 .and()
-                //Настройка для входа в систему
                 .formLogin()
                 .loginPage("/login")
-                //Перенарпавление на главную страницу после успешного входа
-                .defaultSuccessUrl("/")
-                .permitAll()
+                .successHandler(loginSuccessHandler)
+                .failureUrl("/login?error=true")
                 .and()
-                .logout()
-                .permitAll()
-                .logoutSuccessUrl("/");
+                .logout().logoutSuccessUrl("/main").permitAll()
+                .and()
+                .exceptionHandling().accessDeniedPage("/accessDenied")
+                .and()
+                .csrf().disable()
+        ;
     }
-//    @Autowired
-//    protected void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-//        auth.userDetailsService(userService).passwordEncoder(bCryptPasswordEncoder());
-//    }
+
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+
+        auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
+    }
+
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+
+        return new BCryptPasswordEncoder();
+    }
 }
