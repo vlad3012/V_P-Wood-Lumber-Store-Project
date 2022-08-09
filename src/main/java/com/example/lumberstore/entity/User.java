@@ -1,18 +1,10 @@
 package com.example.lumberstore.entity;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
 import org.hibernate.annotations.Cascade;
-import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.time.LocalDate;
-import java.util.*;
+import java.util.Objects;
 
 
 @NamedQuery(name = "get_user_by_email", query = "from users where email=:email")

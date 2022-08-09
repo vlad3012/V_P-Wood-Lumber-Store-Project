@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Title</title>
+    <!--     Fonts and icons     -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.6/css/all.css">
+    <!-- Nucleo Icons -->
+    <link rel="stylesheet" type="text/css" href="../css/nucleo-icons.css"/>
+    <!-- CSS Files -->
+    <link rel="stylesheet" type="text/css"
+          href="../css/black-dashboard.css?v=1.0.0"/>
+    <link rel="stylesheet" type="text/css" href="../css/custom/custom.css"/>
+</head>
+<body>
+<div class="sidebar" id="sidebarAdmin">
+    <!--
+      Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red"
+  -->
+    <div class="sidebar-wrapper rounded">
+        <div class="logo">
+            <a class="simple-text logo-normal">
+                Menu
+            </a>
+        </div>
+        <ul class="nav">
+            <li id="orderSection">
+                <a href="/order/all">
+                    <i class="tim-icons icon-chart-bar-32"></i>
+                    <p>Orders</p>
+                </a>
+            </li>
+            <li id="priceListSection">
+                <a href="/priceList/all">
+                    <i class="tim-icons icon-paper"></i>
+                    <p>Price lists</p>
+                </a>
+            </li>
+            <li id="componentSection">
+                <a href="/component/">
+                    <i class="tim-icons icon-delivery-fast"></i>
+                    <p>Components</p>
+                </a>
+            </li>
+            <li id="catalogSection">
+                <a href="/catalog/settings/list?productType=mirror">
+                    <i class="tim-icons icon-puzzle-10"></i>
+                    <p>Catalog settings</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<nav class="navbar navbar-expand-lg navbar-absolute navbar-transparent" id="navbarAdmin">
+    <div class="container-fluid">
+        <div class="navbar-wrapper">
+            <div class="navbar-toggle d-inline">
+                <button type="button" class="navbar-toggler">
+                    <span class="navbar-toggler-bar bar1"></span>
+                    <span class="navbar-toggler-bar bar2"></span>
+                    <span class="navbar-toggler-bar bar3"></span>
+                </button>
+            </div>
+            <a class="navbar-brand" href="javascript:void(0)">Admin dashboard</a>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-bar navbar-kebab"></span>
+            <span class="navbar-toggler-bar navbar-kebab"></span>
+            <span class="navbar-toggler-bar navbar-kebab"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navigation">
+            <ul class="navbar-nav ml-auto">
+                <!-- <li class="search-bar input-group">
+                  <button class="btn btn-link" id="search-button" data-toggle="modal" data-target="#searchModal"><i class="tim-icons icon-zoom-split" ></i>
+                    <span class="d-lg-none d-md-block">Search</span>
+                  </button>
+                </li> -->
+                <li class="dropdown nav-item">
+                    <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                        <i class="tim-icons icon-world"></i>
+                        <p class="d-lg-none">
+                            Language
+                        </p>
+                    </a>
+                    <ul class="dropdown-menu dropdown-navbar">
+                        <li class="nav-link">
+                            <a href="javascript:void(0)" class="nav-item dropdown-item">
+                                <div class="photo">
+                                    <img src="" alt="En" id="englishIcon">
+                                </div>
+                                English
+                            </a>
+                        </li>
+                        <li class="nav-link">
+                            <a href="javascript:void(0)" class="nav-item dropdown-item">
+                                <div class="photo">
+                                    <img src="" alt="Ru" id="russianIcon">
+                                </div>
+                                Russian
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown nav-item">
+                    <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                        <i class="tim-icons icon-single-02"></i>
+                        <p class="d-lg-none">
+                            Log out
+                        </p>
+                    </a>
+                    <ul class="dropdown-menu dropdown-navbar">
+                        <li class="nav-link"><a href="/profile/"
+                                                class="nav-item dropdown-item">Profile</a></li>
+                        <li class="nav-link"><a href="/main" class="nav-item dropdown-item">Online store</a>
+                        </li>
+                        <li class="dropdown-divider"></li>
+                        <li class="nav-link"><a href="/logout" class="nav-item dropdown-item">Log
+                            out</a></li>
+                    </ul>
+                </li>
+                <li class="separator d-lg-none"></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!--   Core JS Files   -->
+<script src="../js/core/jquery.min.js"></script>
+<script src="../js/core/popper.min.js"></script>
+<script src="../js/core/bootstrap.min.js"></script>
+<script src="../js/plugins/perfect-scrollbar.jquery.min.js"></script>
+<!--  Google Maps Plugin    -->
+<!-- Place this tag in your head or just before your close body tag. -->
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+<!-- Chart JS -->
+<script src="../js/plugins/chartjs.min.js"></script>
+<!--  Notifications Plugin    -->
+<script src="../js/plugins/bootstrap-notify.js"></script>
+<!-- Control Center for Black Dashboard: parallax effects, scripts for the example pages etc -->
+<script src="../js/black-dashboard.min.js?v=1.0.0"></script>
+<!-- Black Dashboard DEMO methods, don't include it in your project! -->
+<script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
+</body>
+</html>

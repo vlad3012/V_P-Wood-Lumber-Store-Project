@@ -1,0 +1,278 @@
+.logo-normal {
+    text-align: center;
+}
+
+.bg-image {
+    /* The image used */
+    background-image: url('../../img/header.jpg');
+
+    /* Full height */
+    height: 100vh;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bg-image-main {
+    /* The image used */
+    background-image: url('../../img/bg_dark.jpg');
+
+    /* Full height */
+    height: 100vh;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.content-user {
+    padding-top: 78px;
+    min-height: calc(100vh - 70px);
+}
+
+.card-login {
+    padding: 40px 40px 20px;
+}
+
+.my-custom-scrollbar {
+    position: relative;
+    overflow: auto;
+}
+
+.table-wrapper-scroll-y {
+    display: block;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+}
+
+option {
+    color: #9A9A9A;
+    background: white;
+}
+
+table {
+    font-size: 0.875rem;
+}
+
+.modal {
+    background: rgba(0, 0, 0, .7);
+}
+
+.footer {
+    padding: 24px 0px 24px 24px;
+}
+
+
+.sidebar {
+    background: linear-gradient(
+            0deg, #00f2c3 0%, #ba54f5 100%);
+}
+
+.sidebar a p {
+    font-size: 0.7rem;
+}
+
+.btn span {
+    display: inline-block;
+}
+
+.badge {
+    font-size: 0.8rem;
+}
+
+.badge-success {
+    background-image: linear-gradient(to bottom left, #0098f0, #00f2ea, #00f2c3);
+}
+
+.dark-list-item {
+    background-color: transparent;
+    border: 0.0625rem solid rgba(255, 255, 255, .1);
+}
+
+.list-group-border {
+    border-bottom: 0.0625rem;
+}
+
+body .content label {
+    font-size: 0.8rem;
+}
+
+body .card label {
+    font-size: 0.8rem;
+}
+
+.nav-tabs {
+    border-bottom: 0.0625rem solid rgba(255, 255, 255, .1);
+}
+
+.nav-tabs .nav-link {
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+/*Button style*/
+
+.btn-one {
+    color: #FFF;
+    transition: all 0.3s;
+    position: relative;
+}
+
+.btn-one span {
+    transition: all 0.3s;
+}
+
+.btn-one::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0;
+    transition: all 0.3s;
+    transform: scale(0.1, 1);
+}
+
+.btn-one:hover span {
+    letter-spacing: 2px;
+}
+
+.btn-one:hover::before {
+    opacity: 1;
+    transform: scale(1, 1);
+}
+
+.btn-one::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    transition: all 0.3s;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.btn-one:hover::after {
+    opacity: 0;
+    transform: scale(0.1, 1);
+}
+
+.btn-white:hover {
+    color: #ff8d72;
+}
+
+.btn-white:active {
+    color: #ff8d72;
+}
+
+/*End button style*/
+
+/*File input style*/
+
+.file-input-custom .form-group {
+    padding: 1em;
+    margin: 1em
+}
+
+.file-input-custom input[type=file] {
+    outline: 0;
+    opacity: 0;
+    pointer-events: none;
+    user-select: none
+}
+
+.file-input-custom .label {
+    border: 2px dashed #e14eca;
+    border-radius: 5px;
+    display: block;
+    padding: 1em;
+    transition: border 300ms ease;
+    cursor: pointer;
+    text-align: center
+}
+
+.file-input-custom .label i {
+    display: block;
+    font-size: 0.75rem;
+    /*padding-bottom: 16px*/
+}
+
+.file-input-custom .label i, .file-input-custom .label .title {
+    color: #e14eca;
+    transition: 200ms color
+}
+
+.file-input-custom .label:hover {
+    border: 2px solid white
+}
+
+.file-input-custom .label:hover i, .file-input-custom .label:hover .title {
+    color: white
+}
+
+.file-input-custom .label span {
+    display: inline-block;
+}
+
+/*End file input style*/
+
+a, .btn {
+    cursor: pointer;
+}
+
+.table > tbody > tr > .text-danger {
+    color: #fd5d93 !important;
+}
+
+.page-link {
+    border: 0.0625rem solid #393e4b;
+    color: #ba54f5;
+}
+
+li.page-item.active .page-link {
+    background-color: #ba54f5;
+    border-color: #ba54f5;
+}
+
+.credit-card {
+    background: linear-gradient(
+            0deg, #ff8d72 0%, #fd5d93 100%);
+    margin: 15px;
+    border-radius: 15px;
+}
+
+.credit-card .form-control {
+    border-color: rgba(255, 255, 255, 0.6);
+    color: floralwhite;
+}
+
+.credit-card .form-control:focus {
+    border-color: white;
+}
+
+.credit-card .form-control::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.credit-card .form-control-danger {
+    border-color: red;
+}

@@ -2,7 +2,7 @@ package com.example.lumberstore.controller;
 
 import com.example.lumberstore.entity.User;
 import com.example.lumberstore.exceptions.UserAlreadyExistsException;
-import com.example.lumberstore.service.interfaces.UserService;
+import com.example.lumberstore.services.interfaces.UserService;
 import com.example.lumberstore.validation.UserValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

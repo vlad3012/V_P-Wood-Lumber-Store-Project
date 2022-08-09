@@ -1,7 +1,7 @@
 package com.example.lumberstore.controller;
 
 import com.example.lumberstore.entity.Customer;
-import com.example.lumberstore.service.interfaces.OrderService;
+import com.example.lumberstore.services.interfaces.OrderService;
 import com.example.lumberstore.validation.CustomerValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

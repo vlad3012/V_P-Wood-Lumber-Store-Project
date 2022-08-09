@@ -14,7 +14,7 @@ import java.util.Properties;
 @EnableTransactionManagement
 @ComponentScans(value = {
         @ComponentScan("com.example.lumberstore.repository"),
-        @ComponentScan("com.example.lumberstore.service"),
+        @ComponentScan("com.example.lumberstore.services"),
         @ComponentScan("com.example.lumberstore.security"),
         @ComponentScan("com.example.lumberstore.validation")
 })
@@ -23,9 +23,8 @@ public class RootConfig {
     @Autowired
     private Environment environment;
 
-    @Bean
+//    @Bean
     public LocalSessionFactoryBean getSessionFactory() {
-
         LocalSessionFactoryBean sessionFactoryBean = new LocalSessionFactoryBean();
 
         Properties properties = new Properties();
@@ -52,7 +51,7 @@ public class RootConfig {
         return sessionFactoryBean;
     }
 
-    @Bean
+//    @Bean
     public HibernateTransactionManager getTransactionManager() {
 
         HibernateTransactionManager transactionManager = new HibernateTransactionManager();

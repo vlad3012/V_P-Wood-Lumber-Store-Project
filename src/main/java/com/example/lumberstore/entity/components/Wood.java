@@ -1,17 +1,14 @@
 package com.example.lumberstore.entity.components;
 
+import com.example.lumberstore.additional.enums.Shape;
 import com.example.lumberstore.entity.Catalog;
 import com.example.lumberstore.entity.Order;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import org.springframework.data.geo.Shape;
 
 import javax.persistence.*;
-
-
 import java.io.Serializable;
 import java.util.*;
-import java.util.List;
 
 @Entity
 @JsonIgnoreProperties(ignoreUnknown = true)

@@ -66,7 +66,7 @@ public class Catalog {
         return woodList;
     }
 
-    public void setGlassList(Set<Wood> woodList) {
+    public void setWoodList(Set<Wood> woodList) {
 
         this.woodList.retainAll(woodList);
         this.woodList.addAll(woodList);

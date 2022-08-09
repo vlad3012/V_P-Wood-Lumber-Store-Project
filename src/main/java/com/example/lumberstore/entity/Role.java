@@ -1,6 +1,6 @@
 package com.example.lumberstore.entity;
 
-import lombok.*;
+
 import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;

@@ -3,8 +3,8 @@ package com.example.lumberstore.controller;
 import com.example.lumberstore.additional.JsonResponse;
 import com.example.lumberstore.additional.enums.ProductType;
 import com.example.lumberstore.entity.Catalog;
-import com.example.lumberstore.service.LocaleMessageHandler;
-import com.example.lumberstore.service.interfaces.CatalogService;
+import com.example.lumberstore.services.LocaleMessageHandler;
+import com.example.lumberstore.services.interfaces.CatalogService;
 import com.example.lumberstore.validation.CatalogValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -139,7 +139,7 @@ public class CatalogController {
     @PostMapping("/settings/upload")
     @ResponseBody
     public JsonResponse catalogUploadFile(@RequestParam MultipartFile file, @RequestParam ProductType productType)
-            throws ImageStorageException {
+            throws RuntimeException {
 
         JsonResponse jsonResponse = new JsonResponse();
 

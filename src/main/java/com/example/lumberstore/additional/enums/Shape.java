@@ -71,6 +71,5 @@ public enum Shape {
     }
 
     public abstract float getSquare(int a, int b);
-
     public abstract float getPerimeter(int a, int b);
 }

@@ -6,6 +6,7 @@ import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.format.FormatterRegistry;
@@ -47,6 +48,7 @@ import java.util.Properties;
         }
 
         @Bean
+
         public ResourceBundleMessageSource validationMessageSource() {
 
             ResourceBundleMessageSource rb = new ResourceBundleMessageSource();

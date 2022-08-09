@@ -2,7 +2,7 @@ package com.example.lumberstore.controller;
 
 import com.example.lumberstore.additional.JsonResponse;
 import com.example.lumberstore.entity.Message;
-import com.example.lumberstore.service.interfaces.MessageService;
+import com.example.lumberstore.services.interfaces.MessageService;
 import com.example.lumberstore.validation.MessageValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.i18n.LocaleContextHolder;
